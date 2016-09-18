@@ -9,6 +9,7 @@ hi default OperatorOverload cterm=bold ctermfg=14 gui=bold guifg=#268bd2
 hi default AccessQual cterm=underline ctermfg=81 gui=bold guifg=#6c71c4
 hi default Linkage ctermfg=239 guifg=#09AA08
 hi default AutoType ctermfg=Yellow guifg=#cb4b16
+hi default Type ctermfg=208 guifg=#ff8700
 
 hi default link chromaticaPrepro PreProc
 hi default link chromaticaDecl Identifier
