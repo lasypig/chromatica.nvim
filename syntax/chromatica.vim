@@ -1,4 +1,4 @@
-hi default Member ctermfg=Cyan guifg=Cyan
+hi default Member ctermfg=Green guifg=Green
 hi default Variable ctermfg=Grey guifg=Grey
 hi default Namespace ctermfg=Yellow guifg=#BBBB00
 hi default Typedef ctermfg=Yellow gui=bold guifg=#BBBB00
