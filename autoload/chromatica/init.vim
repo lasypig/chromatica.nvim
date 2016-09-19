@@ -79,6 +79,9 @@ function! chromatica#init#_enable() abort
             " load chromatica version of syntax for related filetype
             doautoall Syntax
         endif
+		if exists('g:loaded_webdevicons')
+			call webdevicons#refresh()
+		endif
     else
         runtime! syntax/chromatica.vim
     endif
