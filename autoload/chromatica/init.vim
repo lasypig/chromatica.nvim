@@ -81,6 +81,7 @@ function! chromatica#init#_enable() abort
         endif
 		if exists('g:loaded_webdevicons')
 			call webdevicons#refresh()
+			silent wincmd w
 		endif
     else
         runtime! syntax/chromatica.vim
