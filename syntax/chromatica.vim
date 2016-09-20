@@ -16,11 +16,11 @@ hi default link chromaticaDecl Identifier
 hi default link chromaticaRef Type
 hi default link chromaticaKeyword Keyword
 
-hi default link chromaticaInclusionDirective cIncluded
+hi default link chromaticaInclusionDirective cInclude
 hi default link chromaticaDeclRefExprEnum Constant
 hi default link chromaticaDeclRefExprCall Type
 hi default link chromaticaMemberRefExprCall Type
-hi default link chromaticaMemberRefExprVar Type
+hi default link chromaticaMemberRefExprVar Member
 hi default link chromaticaTemplateNoneTypeParameter Identifier
 
 hi link chromaticaStructDecl Type
