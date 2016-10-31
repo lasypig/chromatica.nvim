@@ -332,7 +332,7 @@ hi def link cTodo		Todo
 " hi def link cCppOut		Comment
 
 "=================================================
-syn match DengHao "[+=><\-\*/.][^/\*]"me=e-1
+syn match DengHao "[+=\-\*/.][^h/\*]"me=e-1
 syn match DengHao "[+\-\*/&|!<>=]="
 syn match DengHao "[,;&]"
 hi DengHao guifg=#ff0000 cterm=none ctermfg=196

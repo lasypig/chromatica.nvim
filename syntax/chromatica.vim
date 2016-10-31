@@ -1,6 +1,6 @@
 hi default Member ctermfg=35 guifg=Green
 hi default Variable ctermfg=Grey guifg=Grey
-hi default Namespace ctermfg=166 guifg=#BBBB00
+hi default Namespace ctermfg=14 guifg=#006bd2
 hi default Typedef ctermfg=166 gui=bold guifg=#BBBB00
 hi default EnumConstant ctermfg=118 guifg=LightGreen
 hi default chromaticaException ctermfg=166 gui=bold guifg=#B58900
