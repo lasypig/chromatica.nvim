@@ -39,10 +39,10 @@ brew install llvm --HEAD --with-clang
 
 ### Install Chromatica
 
-Use a plugin manager (for example, Neobundle)
+Use a plugin manager (for example, vim-plug)
 
 ```vim
-NeoBundle 'arakashic/chromatica.nvim'
+Plug 'lasypig/chromatica.nvim'
 ```
 
 Or manually check out the repo and put the directory to your vim runtime path.
