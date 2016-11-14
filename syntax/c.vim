@@ -334,7 +334,7 @@ hi def link cTodo		Todo
 "=================================================
 syn match DengHao "[+=\-\*/.][^h/\*]"me=e-1
 syn match DengHao "[+\-\*/&|!<>=]="
-syn match DengHao "[,;&]"
+syn match DengHao "[,;&|<>]"
 hi DengHao guifg=#ff0000 cterm=none ctermfg=196
 syn match scope_c "[\[\]{}()]"
 hi scope_c guifg=#009fbf cterm=none ctermfg=39
