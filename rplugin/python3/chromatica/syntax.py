@@ -56,7 +56,7 @@ LITERAL_GROUP = {
     cindex.CursorKind.STRING_LITERAL: None,
     cindex.CursorKind.CHARACTER_LITERAL: "Character",
     cindex.CursorKind.OBJC_STRING_LITERAL: None,
-    cindex.CursorKind.INCLUSION_DIRECTIVE: "chromaticaIncludedHeaderFile",
+#    cindex.CursorKind.INCLUSION_DIRECTIVE: "chromaticaIncludedHeaderFile",
 }
 
 TYPE_GROUP = {
@@ -276,7 +276,7 @@ SYNTAX_GROUP = {
     cindex.CursorKind.PREPROCESSING_DIRECTIVE: None,
     cindex.CursorKind.MACRO_DEFINITION: "chromaticaMacroDefinition",
     cindex.CursorKind.MACRO_INSTANTIATION: "chromaticaMacroInstantiation",
-    cindex.CursorKind.INCLUSION_DIRECTIVE: "chromaticaInclusionDirective",
+#    cindex.CursorKind.INCLUSION_DIRECTIVE: "chromaticaInclusionDirective",
 }
 
 KEYWORDS = {
@@ -305,7 +305,7 @@ KEYWORDS = {
 PUNCTUATION_SYNTAX_GROUP = {
     cindex.CursorKind.CONDITIONAL_OPERATOR: "chromaticaConditionalOperator",
     cindex.CursorKind.CSTYLE_CAST_EXPR: "chromaticaCStyleCast",
-    cindex.CursorKind.INCLUSION_DIRECTIVE: "chromaticaIncludedHeaderFile",
+#    cindex.CursorKind.INCLUSION_DIRECTIVE: "chromaticaIncludedHeaderFile",
 }
 
 def _get_default_syn(tu, token, cursor):
