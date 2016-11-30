@@ -66,8 +66,6 @@ function! chromatica#init#_initialize() abort
     let s:is_enabled = g:chromatica#enable_at_startup
     if s:is_enabled
         call chromatica#init#_enable()
-    else
-        call chromatica#init#_disable()
     endif
 endfunction
 
@@ -113,7 +111,7 @@ function! chromatica#init#_variables() abort
     call chromatica#util#set_default(
                 \ 'g:chromatica#enable_log', 0)
     call chromatica#util#set_default(
-                \ 'g:chromatica#syntax_src_id', -2)
+                \ 'g:chromatica#syntax_src_id', 100)
     call chromatica#util#set_default(
                 \ 'g:chromatica#global_args', [])
     call chromatica#util#set_default(
