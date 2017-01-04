@@ -49,10 +49,10 @@ options turned on when building LLVM.
 
 ### Install Chromatica
 
-Use a plugin manager (for example, vim-plug)
+Use a plugin manager (for example, Neobundle)
 
 ```vim
-Plug 'lasypig/chromatica.nvim'
+NeoBundle 'arakashic/chromatica.nvim'
 ```
 
 Or manually check out the repo and put the directory to your vim runtime
