@@ -275,13 +275,14 @@ endif
 "   syn region	cCppOutSkip	contained start="^\s*\(%:\|#\)\s*\(if\>\|ifdef\>\|ifndef\>\)" skip="\\$" end="^\s*\(%:\|#\)\s*endif\>" contains=cCppOutSkip
 "   syn region	cCppInSkip	contained matchgroup=cCppInWrapper start="^\s*\(%:\|#\)\s*\(if\s\+\(\d\+\s*\($\|//\|/\*\||\|&\)\)\@!\|ifdef\>\|ifndef\>\)" skip="\\$" end="^\s*\(%:\|#\)\s*endif\>" containedin=cCppOutElse,cCppInIf,cCppInSkip contains=TOP,cPreProc
 " endif
-" syn region	cIncluded	display contained start=+"+ skip=+\\\\\|\\"+ end=+"+
-" syn match	cIncluded	display contained "<[^>]*>"
-" syn match	cInclude	display "^\s*\(%:\|#\)\s*include\>\s*["<]" contains=cIncluded
+syn region	cIncluded	display contained start=+"+ skip=+\\\\\|\\"+ end=+"+
+syn match	cIncluded	display contained "<[^>]*>"
+syn match	cInclude	display "^\s*\(%:\|#\)\s*include\>\s*["<]" contains=cIncluded
 "syn match cLineSkip	"\\$"
-" syn cluster	cPreProcGroup	contains=cPreCondit,cIncluded,cInclude,cDefine,cSpecial,cOctalZero,cCppOutWrapper,cCppInWrapper,@cCppOutInGroup,cFormat,cOctal,cOctalError,cNumbersCom,cString,cCommentSkip,cCommentString,cComment2String,@cCommentGroup,cMulti,cBadBlock
+syn cluster	cPreProcGroup	contains=cPreCondit,cIncluded,cInclude,cDefine,cSpecial,cOctalZero,cCppOutWrapper,cCppInWrapper,@cCppOutInGroup,cFormat,cOctal,cOctalError,cNumbersCom,cString,cCommentSkip,cCommentString,cComment2String,@cCommentGroup,cMulti,cBadBlock
 syn region	cDefine		start="^\s*\(%:\|#\)\s*\(define\|undef\|if\|ifdef\|ifndef\|else\|elif\|endif\)\>" end="\(\ \|$\)"
 syn region	cPreProc	start="^\s*\(%:\|#\)\s*\(pragma\|line\|warning\|warn\|error\)\>" end="\(\ \|$\)"
+
 
 if exists("c_minlines")
   let b:c_minlines = c_minlines

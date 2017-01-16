@@ -56,7 +56,7 @@ LITERAL_GROUP = {
     cindex.CursorKind.STRING_LITERAL: None,
     cindex.CursorKind.CHARACTER_LITERAL: "Character",
     cindex.CursorKind.OBJC_STRING_LITERAL: None,
-    cindex.CursorKind.INCLUSION_DIRECTIVE: "chromaticaIncludedHeaderFile",
+    cindex.CursorKind.INCLUSION_DIRECTIVE: None,#"chromaticaIncludedHeaderFile",
 }
 
 TYPE_GROUP = {
@@ -277,7 +277,7 @@ SYNTAX_GROUP = {
     cindex.CursorKind.PREPROCESSING_DIRECTIVE: None,
     cindex.CursorKind.MACRO_DEFINITION: "chromaticaMacroDefinition",
     cindex.CursorKind.MACRO_INSTANTIATION: "chromaticaMacroInstantiation",
-    cindex.CursorKind.INCLUSION_DIRECTIVE: "chromaticaInclusionDirective",
+    cindex.CursorKind.INCLUSION_DIRECTIVE: None,#"chromaticaInclusionDirective",
 }
 
 KEYWORDS = {
@@ -311,7 +311,10 @@ PUNCTUATION_SYNTAX_GROUP = {
 
 def _get_default_syn(tu, token, cursor):
     if cursor.kind.is_preprocessing():
-        return "chromaticaPrepro"
+        if token.spelling == "include":
+            return None
+        else:
+            return "chromaticaPrepro"
     elif cursor.kind.is_declaration():
         if not cursor.kind.UNEXPOSED_DECL: return "chromaticaDecl"
         else: return None
@@ -379,7 +382,7 @@ def _get_syntax_group(tu, token):
 
     if HIGHLIGHT_FEATURE_LEVEL >= 1:
         if token.kind.value == 0: # Punctuation
-            return _get_punctuation_syntax(tu, token, cursor)
+            return None#_get_punctuation_syntax(tu, token, cursor)
         elif token.kind.value == 1: # Keyword
             return _get_keyword_syn(tu, token, cursor)
         elif token.kind.value == 4: # Comment: let vim handle it
