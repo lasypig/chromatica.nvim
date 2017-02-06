@@ -1,25 +1,24 @@
-hi default Member ctermfg=35 guifg=Green
+hi default Member ctermfg=LightBlue guifg=LightBlue
 hi default Variable ctermfg=Grey guifg=Grey
-hi default Namespace ctermfg=14 guifg=#006bd2
-hi default Typedef ctermfg=166 gui=bold guifg=#BBBB00
-hi default EnumConstant ctermfg=118 guifg=LightGreen
-hi default chromaticaException ctermfg=166 gui=bold guifg=#B58900
-hi default chromaticaCast ctermfg=35 gui=bold guifg=#719E07
+hi default Namespace ctermfg=Yellow guifg=#BBBB00
+hi default Typedef ctermfg=Yellow gui=bold guifg=#BBBB00
+hi default EnumConstant ctermfg=LightGreen guifg=LightGreen
+hi default chromaticaException ctermfg=Yellow gui=bold guifg=#B58900
+hi default chromaticaCast ctermfg=Green gui=bold guifg=#719E07
 hi default OperatorOverload cterm=bold ctermfg=14 gui=bold guifg=#268bd2
 hi default AccessQual cterm=underline ctermfg=81 gui=bold guifg=#6c71c4
 hi default Linkage ctermfg=239 guifg=#09AA08
-hi default AutoType ctermfg=166 guifg=#cb4b16
-hi default Type ctermfg=208 guifg=#ff8700
+hi default AutoType ctermfg=Yellow guifg=#cb4b16
 
 hi default link chromaticaPrepro PreProc
 hi default link chromaticaDecl Identifier
 hi default link chromaticaRef Type
 hi default link chromaticaKeyword Keyword
 
-hi default link chromaticaInclusionDirective cInclude
+hi default link chromaticaInclusionDirective cIncluded
 hi default link chromaticaDeclRefExprEnum Constant
 hi default link chromaticaDeclRefExprCall Type
-hi default link chromaticaMemberRefExprCall Type
+hi default link chromaticaMemberRefExprCall Member
 hi default link chromaticaMemberRefExprVar Member
 hi default link chromaticaTemplateNoneTypeParameter Identifier
 
