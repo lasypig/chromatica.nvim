@@ -316,8 +316,6 @@ hi def link cInclude		Include
 hi def link cPreProc		PreProc
 hi def link cDefine		Macro
 hi def link cIncluded		cString
-" hi def link cCppInWrapper	cCppOutWrapper
-" hi def link cCppOutWrapper	cPreCondit
 hi def link cPreConditMatch	cPreCondit
 hi def link cPreCondit		PreCondit
 hi def link cType		Type
@@ -329,10 +327,6 @@ hi def link cString		String
 hi def link cComment		Comment
 hi def link cSpecial		SpecialChar
 hi def link cTodo		Todo
-" hi def link cCppOutSkip		cCppOutIf2
-" hi def link cCppInElse2		cCppOutIf2
-" hi def link cCppOutIf2		cCppOut
-" hi def link cCppOut		Comment
 
 "=================================================
 syn match DengHao "[+=\-\*/.][^h/\*]"me=e-1
