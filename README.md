@@ -19,10 +19,9 @@ The project is in alpha state, but it is fairly stable and usable now.
 
 ## Prerequites
 
-* [Neovim][3] 0.1.6
+* [Neovim][3] 0.1.6 or newer
 * [Python3][4] and [Neovim python client][5]
-* [libclang][6] (prefers 3.9.0, though an older version may work as
-    well)
+* [libclang][6] (prefers 3.9.0 or newer)
 
 ### Known Incompatibility
 
@@ -120,11 +119,15 @@ Chromatica provides different feature levels. Each level enables a
 different set of highlight. This is controlled by
 `g:chromatica#highlight_feature_level`. 
 
-The default level is 0, which provides basic semantic highlight with
-default vim syntax.
+The default level is 1, which let Chromatica handles most of the token
+in the code. A modified `c.vim` will be load for the highlighting the %
+format specifier and other stuff that a parser does not understand.
 
-A more advanced level is 1, which gets more detailed highlight from
-libclang with a customized syntax file.
+Setting it to 0 would limit Chromatica to handle only the identifiers
+and literals. This is only recommended if you have a slow machine and
+are experiencing performance issue with the full functionality of
+Chromatica. Note the `$VIMRUNTIME/syntax/c.vim` will be loaded in this
+case and may exhibit highlight conflicts in some scenarios.
 
 ## Responsive Mode
 
@@ -165,7 +168,7 @@ location of `.clang`, compilation database, compilation arguments, etc.
 
 Chromatica has a debug log. It can be enabled by executing the
 `ChromaticaEnableLog` command (for one time use) or set the
-`g:chromatica#debug_log` option. It will generate a `chromatica.log`
+`g:chromatica#enable_log` option. It will generate a `chromatica.log`
 file in the current directory.
 
 Chromatica also provides a AST dump feature that is useful for the users

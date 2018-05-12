@@ -83,7 +83,11 @@ class CompileArgsDatabase(object):
 
     def __try_init_cdb(self):
         if self.__cdb_path != None:
-            self.cdb = cindex.CompilationDatabase.fromDirectory(self.__cdb_path)
+            try:
+                self.cdb = cindex.CompilationDatabase.fromDirectory(self.__cdb_path)
+            except:
+                log.error("Invalid compilation database file %s" % self.__cdb_path)
+                self.__cdb_path = None
 
     def __get_cdb_args(self, filename):
         res = []

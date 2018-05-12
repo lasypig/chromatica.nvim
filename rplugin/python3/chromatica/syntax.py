@@ -351,8 +351,12 @@ def _get_keyword_decl_syn(tu, token, cursor):
     if group:
         return group
     else:
-        if cursor.kind != cindex.CursorKind.UNEXPOSED_DECL: return "chromaticaType"
-        else: return None
+        if cursor.kind not in (cindex.CursorKind.UNEXPOSED_DECL, cindex.CursorKind.CXX_ACCESS_SPEC_DECL):
+            return "chromaticaType"
+        elif cursor.kind == cindex.CursorKind.UNEXPOSED_DECL:
+            return None
+        else:
+            return SYNTAX_GROUP.get(cursor.kind)
 
 def _get_keyword_syn(tu, token, cursor):
     """Handles cursor type of keyword tokens. Providing syntax group for most
@@ -481,14 +485,14 @@ def dump_ast_info(tu, filename, lbegin, lend):
                 fp.write(termcolor(BLUE) + "PREPROC ")
             fp.write(termcolor(YELLOW) + "%s " % (str(token.kind).split(".")[1]))
             fp.write(termcolor(CYAN) + "%s " % (str(cursor.kind).split(".")[1]))
-            if cursor.type.kind != cindex.TypeKind.INVALID:
-                fp.write(termcolor(MAGENTA) + "%s " % (str(cursor.type.kind).split(".")[1]))
-            if cursor.result_type.kind != cindex.TypeKind.INVALID:
-                fp.write(termcolor(RED, BOLD) + "%s " % (str(cursor.result_type.kind).split(".")[1]))
-            if cursor.storage_class != cindex.StorageClass.INVALID:
-                fp.write(termcolor(CYAN, BOLD) + "%s " % (str(cursor.storage_class).split(".")[1]))
-            if cursor.access_specifier != cindex.AccessSpecifier.INVALID:
-                fp.write(termcolor(MAGENTA, BOLD) + "%s " % (str(cursor.access_specifier).split(".")[1]))
+            # if cursor.type.kind != cindex.TypeKind.INVALID:
+            fp.write(termcolor(MAGENTA) + "%s " % (str(cursor.type.kind).split(".")[1]))
+            # if cursor.result_type.kind != cindex.TypeKind.INVALID:
+            fp.write(termcolor(RED, BOLD) + "%s " % (str(cursor.result_type.kind).split(".")[1]))
+            # if cursor.storage_class != cindex.StorageClass.INVALID:
+            fp.write(termcolor(CYAN, BOLD) + "%s " % (str(cursor.storage_class).split(".")[1]))
+            # if cursor.access_specifier != cindex.AccessSpecifier.INVALID:
+            fp.write(termcolor(MAGENTA, BOLD) + "%s " % (str(cursor.access_specifier).split(".")[1]))
             fp.write(termcolor() + "\n")
 
     fp.close()

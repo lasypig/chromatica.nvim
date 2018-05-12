@@ -117,6 +117,8 @@ function! chromatica#init#_variables() abort
     call chromatica#util#set_default(
                 \ 'g:chromatica#enable_log', 0)
     call chromatica#util#set_default(
+                \ 'g:chromatica#enable_profiling', 0)
+    call chromatica#util#set_default(
                 \ 'g:chromatica#syntax_src_id', 100)
     call chromatica#util#set_default(
                 \ 'g:chromatica#global_args', [])
@@ -127,7 +129,7 @@ function! chromatica#init#_variables() abort
     call chromatica#util#set_default(
                 \ 'g:chromatica#use_pch', 1)
     call chromatica#util#set_default(
-                \ 'g:chromatica#highlight_feature_level', 0)
+                \ 'g:chromatica#highlight_feature_level', 1)
     call chromatica#util#set_default(
                 \ 'g:chromatica#dotclangfile_search_path', '')
 endfunction
