@@ -36,11 +36,8 @@ The project is in alpha state, but it is fairly stable and usable now.
 Install neovim python client and latest clang
 ```bash
 pip3 install neovim
-brew install llvm --HEAD --with-clang
+brew install llvm
 ```
-Note the install configuration only include the required option
-`--with-clang`.  Chromatica should work just fine if you have more
-options turned on when building LLVM.
 
 ### Install Chromatica
 
@@ -77,8 +74,6 @@ let g:chromatica#enable_at_startup=1
 Alternatively, you can manually enable and disable Chromatica by calling,
 respectively, `:ChromaticaStart` and `:ChromaticaStop`.
 
-
-
 ## Compilation Flags
 
 Chromatica already has flags for simple codes. To provide the most
@@ -112,6 +107,13 @@ For convenience, you can also set the
 `g:chromatica#dotclangfile_search_path` option to the directory that you
 put the `.clang` file or the compilation database. It overrides the
 default search directory.
+
+If preferred, you can set the `g:chromatica#search_source_args` option to
+have Chromatica search the compilation database for similar filenames, if an entry
+for the current file is not found. (This is especially useful if your
+compilation database does not contain entries for header files). Currently,
+this just searches the database for the current file's base name, with the extensions
+.c, .cc, .cpp, or .cxx.
 
 ## Highlight Feature Level
 
@@ -155,6 +157,22 @@ repasing and throttles the number of reparse requests per seconds to
 avoid reparse flooding. You can increase `g:chromatica#delay_ms` if you
 still experiencing performance issues.
 
+## Common Issues
+
+It is reported in issue #52 that the libclang may be missing one
+include directory on Linux, which causing incorrect highlight. You can
+fix it by adding the missing directory through global arguments. The
+following is an example.
+
+```vim
+let g:chromatica#global_args = ['-isystem/usr/lib/llvm-6.0/lib/clang/6.0.0/include']
+```
+
+Since OSX Mojave, the XCode command line tools does not create
+`/usr/include` any more, which breaks the LLVM from homebrew. You might
+need to run the following command to manually install it. More details
+can be found at [here][8].
+
 ## Troubleshooting and Customization
 
 When a token is not highlighted or not highlighted correctly, the first
@@ -170,6 +188,10 @@ Chromatica has a debug log. It can be enabled by executing the
 `ChromaticaEnableLog` command (for one time use) or set the
 `g:chromatica#enable_log` option. It will generate a `chromatica.log`
 file in the current directory.
+
+```sh
+installer -pkg /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg -target /
+```
 
 Chromatica also provides a AST dump feature that is useful for the users
 who want to customize the highlight settings. Simply executing the
@@ -225,3 +247,4 @@ This project is largely inspired by [deoplete][1] and [color_coded][2].
 [5]: https://github.com/neovim/python-client
 [6]: http://clang.llvm.org
 [7]: https://github.com/rizsotto/Bear
+[8]: https://apple.stackexchange.com/questions/337940/why-is-usr-include-missing-i-have-xcode-and-command-line-tools-installed-moja
